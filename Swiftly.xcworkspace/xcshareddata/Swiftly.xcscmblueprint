@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B90033205E5771B0618DDE06EB3FC7DD6DF77CD8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FF4347206C66CEF98A6E292F603E9F88DDE381FB" : 9223372036854775807,
+    "B90033205E5771B0618DDE06EB3FC7DD6DF77CD8" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "30C564A0-6967-4F7D-90DC-9D9E1F5D209C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FF4347206C66CEF98A6E292F603E9F88DDE381FB" : "SwiftEvolutionProvider\/",
+    "B90033205E5771B0618DDE06EB3FC7DD6DF77CD8" : "Swiftly\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Swiftly",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Swiftly.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:superpeteblaze\/Swiftly.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B90033205E5771B0618DDE06EB3FC7DD6DF77CD8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:superpeteblaze\/SwiftEvolutionProvider.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FF4347206C66CEF98A6E292F603E9F88DDE381FB"
+    }
+  ]
+}

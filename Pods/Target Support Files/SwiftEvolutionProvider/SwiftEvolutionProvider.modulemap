@@ -1,0 +1,6 @@
+framework module SwiftEvolutionProvider {
+  umbrella header "SwiftEvolutionProvider-umbrella.h"
+
+  export *
+  module * { export * }
+}

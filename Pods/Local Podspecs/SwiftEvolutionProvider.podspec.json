@@ -1,0 +1,22 @@
+{
+  "name": "SwiftEvolutionProvider",
+  "version": "0.1.0",
+  "summary": "A short description of SwiftEvolutionProvider.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/petezendesk/SwiftEvolutionProvider",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "petezendesk": "peadar81@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/petezendesk/SwiftEvolutionProvider.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "SwiftEvolutionProvider/Classes/**/*"
+}
