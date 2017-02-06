@@ -22,12 +22,17 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - RxCocoa (3.2.0):
+    - RxSwift (~> 3.1)
+  - RxSwift (3.2.0)
   - SwiftEvolutionProvider (0.1.0)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
   - Firebase/Core
+  - RxCocoa
+  - RxSwift
   - SwiftEvolutionProvider (from `~/Code/SwiftEvolutionProvider`)
 
 EXTERNAL SOURCES:
@@ -44,8 +49,10 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
+  RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
   SwiftEvolutionProvider: eb153caf3952183417641b3b9503844623128cf8
 
-PODFILE CHECKSUM: e3c8b2f542c0fc30ff80cae4ee8acbbe6436d839
+PODFILE CHECKSUM: 66cc3c8bdeeee65fb605b059c470b47bcb102964
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

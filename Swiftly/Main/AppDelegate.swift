@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Firebase
@@ -25,7 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Fabric
         Fabric.with([Crashlytics.self])
         
+        // Configure our root view
+        configureRootViewController()
+        
         return true
+    }
+}
+
+private typealias PrivateAPI = AppDelegate
+fileprivate extension PrivateAPI {
+    
+    fileprivate func configureRootViewController() {
+        window = UIWindow()
+        window?.rootViewController = Router.rootViewController
+        window?.makeKeyAndVisible()
     }
 }
 

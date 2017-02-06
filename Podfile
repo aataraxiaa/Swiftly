@@ -10,8 +10,14 @@ target 'Swiftly' do
   pod 'SwiftEvolutionProvider', :path => '~/Code/SwiftEvolutionProvider'
   
   # Third party
+  
+  # Analytics
   pod 'Firebase/Core'
   pod 'Fabric'
   pod 'Crashlytics'
+  
+  # Rx
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end
