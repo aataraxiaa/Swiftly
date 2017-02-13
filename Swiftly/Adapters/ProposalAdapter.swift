@@ -10,17 +10,17 @@ import RxCocoa
 import RxSwift
 import SwiftEvolutionProvider
 
-struct EvolutionAdapter: CollectionAdapter {
+struct ProposalAdapter: CollectionAdapter {
     
     var viewModels: Observable<[Any]> {
-        return Variable([]).asObservable()
+        return elements.asObservable()
     }
     
     var isPagable: Bool {
         return false
     }
     
-    private var elements: Variable<[Proposal]> = Variable([])
+    private var elements: Variable<[Any]> = Variable([])
     
     func fetch() {
         _ = ProposalProvider.proposals(withSuccess: { proposals in

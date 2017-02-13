@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4381CAF2431906A4382208AA /* Pods_Swiftly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB378971B7FFE7A1B031EF2 /* Pods_Swiftly.framework */; };
 		650E4DB01E491292009533C3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650E4DAF1E491292009533C3 /* Store.swift */; };
-		653FA5001E50F01F00611E2F /* EvolutionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653FA4FF1E50F01F00611E2F /* EvolutionAdapter.swift */; };
+		653FA5001E50F01F00611E2F /* ProposalAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653FA4FF1E50F01F00611E2F /* ProposalAdapter.swift */; };
 		655BD2511E4919A800FA7511 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655BD2501E4919A800FA7511 /* Router.swift */; };
 		65677A5D1E4F921B0015C342 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65677A5B1E4F921B0015C342 /* Configurable.swift */; };
 		656AF8711E45FC1300634FF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AF8701E45FC1300634FF2 /* AppDelegate.swift */; };
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		650E4DAF1E491292009533C3 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Store.swift; path = Model/Store.swift; sourceTree = "<group>"; };
-		653FA4FF1E50F01F00611E2F /* EvolutionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EvolutionAdapter.swift; path = Adapters/EvolutionAdapter.swift; sourceTree = "<group>"; };
+		653FA4FF1E50F01F00611E2F /* ProposalAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProposalAdapter.swift; path = Adapters/ProposalAdapter.swift; sourceTree = "<group>"; };
 		655BD2501E4919A800FA7511 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Routing/Router.swift; sourceTree = "<group>"; };
 		65677A5B1E4F921B0015C342 /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configurable.swift; path = Protocols/Configurable.swift; sourceTree = "<group>"; };
 		656AF86D1E45FC1300634FF2 /* Swiftly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swiftly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +154,7 @@
 		65D618C81E50ED5200E58573 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				653FA4FF1E50F01F00611E2F /* EvolutionAdapter.swift */,
+				653FA4FF1E50F01F00611E2F /* ProposalAdapter.swift */,
 			);
 			name = Adapters;
 			sourceTree = "<group>";
@@ -361,7 +361,7 @@
 				65E8CEDE1E47BA1A00536A42 /* CollectionViewController.swift in Sources */,
 				656AF8711E45FC1300634FF2 /* AppDelegate.swift in Sources */,
 				65E8CED51E47AEFE00536A42 /* ProposalCell.swift in Sources */,
-				653FA5001E50F01F00611E2F /* EvolutionAdapter.swift in Sources */,
+				653FA5001E50F01F00611E2F /* ProposalAdapter.swift in Sources */,
 				655BD2511E4919A800FA7511 /* Router.swift in Sources */,
 				65D618CB1E50EDBA00E58573 /* CollectionAdapter.swift in Sources */,
 				650E4DB01E491292009533C3 /* Store.swift in Sources */,

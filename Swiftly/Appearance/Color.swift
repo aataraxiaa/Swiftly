@@ -17,7 +17,7 @@ extension Color {
     func instance() -> UIColor {
         switch self {
         case .navigationBar:
-            return #colorLiteral(red: 0.9792123437, green: 0.5946284533, blue: 0.5394276977, alpha: 1)
+            return UIColor(displayP3Red: 0.96, green: 0.51, blue: 0.47, alpha: 1.0)
         }
     }
 }

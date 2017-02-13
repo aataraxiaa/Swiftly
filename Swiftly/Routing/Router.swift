@@ -30,7 +30,11 @@ struct Router {
     }()
     
     fileprivate static var masterNavigationViewController: UINavigationController = {
-        let navigationController = UINavigationController()
+        
+        // Set initial root view controller
+        let rootViewController = CollectionViewController<ProposalCell>(withAdapter: ProposalAdapter())
+        
+        let navigationController = UINavigationController(rootViewController: rootViewController)
         
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barTintColor = Color.navigationBar.instance()

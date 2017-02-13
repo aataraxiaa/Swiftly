@@ -40,6 +40,8 @@ class CollectionViewController<Cell: UICollectionViewCell>: UIViewController whe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionAdapter.fetch()
     }
 }
 
@@ -48,7 +50,9 @@ fileprivate extension CollectionViewController {
     
     fileprivate func addAndBindCollectionView() {
         
-        self.collectionView = UICollectionView()
+        self.collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = .white
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
         
         // Constraints

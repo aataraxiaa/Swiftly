@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SwiftEvolutionProvider
 
 class ProposalCell: UICollectionViewCell {
     
     // MARK: - Outlets
-    @IBOutlet private weak var title: UILabel!
+    @IBOutlet fileprivate weak var title: UILabel!
 
     // MARK: - Lifecycle
     
@@ -20,4 +21,14 @@ class ProposalCell: UICollectionViewCell {
         // Initialization code
     }
 
+}
+
+extension ProposalCell: Configurable {
+    
+    func configure(withViewModel viewModel: Any) {
+        
+        guard let proposal = viewModel as? Proposal else { fatalError() }
+        
+        title.text = proposal.title
+    }
 }
