@@ -7,64 +7,63 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
-class CollectionViewController<T>: UICollectionViewController {
+class CollectionViewController<Cell: UICollectionViewCell>: UIViewController where Cell: NibLoadable, Cell: Configurable {
+    
+    // MARK: - Properties (Public)
+    
+    // MARK: - Properties (Private)
+    fileprivate var collectionView: UICollectionView!
+    fileprivate var collectionAdapter: CollectionAdapter!
+    fileprivate let disposeBag = DisposeBag()
+    
+    // MARK: - Initialization
+    
+    init(withAdapter adapter: CollectionAdapter) {
+        self.collectionAdapter = adapter
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        addAndBindCollectionView()
+        
+        // Register cell classes
+        self.collectionView!.register(Cell.nib, forCellWithReuseIdentifier: Cell.identifier)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Register cell classes
-        self.collectionView!.register(ProposalCell.nib, forCellWithReuseIdentifier: ProposalCell.identifier)
     }
+}
 
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProposalCell.identifier, for: indexPath)
+// MARK: - PrivateAPI
+fileprivate extension CollectionViewController {
     
-        // Configure the cell
-    
-        return cell
+    fileprivate func addAndBindCollectionView() {
+        
+        self.collectionView = UICollectionView()
+        view.addSubview(collectionView)
+        
+        // Constraints
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        // Bind via Rx
+        collectionAdapter.viewModels.observeOn(
+            MainScheduler.instance).bindTo(collectionView.rx.items(
+                cellIdentifier: Cell.identifier, cellType: Cell.self)){ (_, viewModel, cell) in
+        
+                    cell.configure(withViewModel: viewModel)
+                    
+        }.addDisposableTo(disposeBag)
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
