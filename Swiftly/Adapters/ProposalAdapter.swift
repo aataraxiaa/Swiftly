@@ -31,4 +31,10 @@ struct ProposalAdapter: CollectionAdapter {
                 
         } )
     }
+    
+    subscript(index: Int) -> Any? {
+        guard index < elements.value.count && !elements.value.isEmpty else { return nil }
+        
+        return elements.value[index]
+    }
 }

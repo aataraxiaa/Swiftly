@@ -17,4 +17,7 @@ protocol CollectionAdapter {
     
     // MARK: - Functions
     func fetch()
+    
+    // MARK: - Subscripts
+    subscript(index: Int) -> Any? { get }
 }

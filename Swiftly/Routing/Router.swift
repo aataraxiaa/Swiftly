@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import SwiftEvolutionProvider
+import SafariServices
 
 struct Router {
+    
+    // MARK: - Properities (Public)
     
     static var rootViewController: UISplitViewController = {
         let splitViewController = UISplitViewController()
@@ -19,6 +23,12 @@ struct Router {
         
         return splitViewController
     }()
+    
+    // MARK: - Properities (Private)
+}
+
+private typealias PrivateAPI = Router
+fileprivate extension PrivateAPI {
     
     fileprivate static var tabBarController: UITabBarController = {
         let tabBarController = UITabBarController()
@@ -32,9 +42,20 @@ struct Router {
     fileprivate static var masterNavigationViewController: UINavigationController = {
         
         // Set initial root view controller
-        let rootViewController = CollectionViewController<ProposalCell>(withAdapter: ProposalAdapter())
+        let rootViewController = CollectionViewController<ProposalCell>(withAdapter: ProposalAdapter(), andNavigationAction: { element in
+        
+            if let proposal = element as? Proposal {
+                guard let url = URL(
+                    string: "https://github.com/apple/swift-evolution/blob/master/proposals/"+proposal.link) else { return }
+                
+                let safariViewController = SFSafariViewController(url: url)
+                
+                detailNavigationViewController.pushViewController(safariViewController, animated: true)
+            }
+        })
         
         let navigationController = UINavigationController(rootViewController: rootViewController)
+        navigationController.hidesBarsOnSwipe = true
         
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
@@ -43,16 +64,13 @@ struct Router {
     }()
     
     fileprivate static var detailNavigationViewController: UINavigationController = {
+        
         let navigationController = UINavigationController()
+        navigationController.hidesBarsOnSwipe = true
         
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
         
         return navigationController
     }()
-}
-
-private typealias PrivateAPI = Router
-fileprivate extension PrivateAPI {
-    
 }

@@ -58,13 +58,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		655BD24C1E49082000FA7511 /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Layout;
-			sourceTree = "<group>";
-		};
 		655BD24F1E49196900FA7511 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +89,6 @@
 			children = (
 				65D618C81E50ED5200E58573 /* Adapters */,
 				655BD24F1E49196900FA7511 /* Routing */,
-				655BD24C1E49082000FA7511 /* Layout */,
 				65E8CEDF1E47BA3D00536A42 /* Protocols */,
 				65E8CED71E47B58600536A42 /* Appearance */,
 				65E8CED11E47AECE00536A42 /* Views */,
