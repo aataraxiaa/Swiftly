@@ -42,7 +42,7 @@ fileprivate extension PrivateAPI {
     fileprivate static var masterNavigationViewController: UINavigationController = {
         
         // Set initial root view controller
-        let rootViewController = CollectionViewController<ProposalCell>(withAdapter: ProposalAdapter(), andNavigationAction: { element in
+        let masterRootViewController = CollectionViewController<ProposalCell>(withAdapter: ProposalAdapter(), andNavigationAction: { element in
         
             if let proposal = element as? Proposal {
                 guard let url = URL(
@@ -50,11 +50,13 @@ fileprivate extension PrivateAPI {
                 
                 let safariViewController = SFSafariViewController(url: url)
                 
-                detailNavigationViewController.pushViewController(safariViewController, animated: true)
+//                detailNavigationViewController.setViewControllers([safariViewController], animated: false)
+                
+                rootViewController.showDetailViewController(detailNavigationViewController, sender: nil)
             }
         })
         
-        let navigationController = UINavigationController(rootViewController: rootViewController)
+        let navigationController = UINavigationController(rootViewController: masterRootViewController)
         navigationController.hidesBarsOnSwipe = true
         
         navigationController.navigationBar.isTranslucent = false
