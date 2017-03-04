@@ -24,4 +24,4 @@ extension NibLoadable {
     }
 }
 
-extension UICollectionViewCell: NibLoadable {}
+extension UITableViewCell: NibLoadable {}

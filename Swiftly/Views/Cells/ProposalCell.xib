@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12100" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E144f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12072"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProposalCell" id="gTV-IL-0wX" customClass="ProposalCell" customModule="Swiftly" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="70"/>
-                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ProposalCell" customModule="Swiftly" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZY-6B-Huo">
-                        <rect key="frame" x="15" y="15" width="370" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmG-v7-OJE">
+                        <rect key="frame" x="15" y="10" width="290" height="23.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-            </view>
-            <constraints>
-                <constraint firstItem="xZY-6B-Huo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="DnA-ZP-hyX"/>
-                <constraint firstAttribute="trailing" secondItem="xZY-6B-Huo" secondAttribute="trailing" constant="15" id="aNk-rr-yOj"/>
-                <constraint firstItem="xZY-6B-Huo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="fSf-0V-qLB"/>
-                <constraint firstAttribute="bottom" secondItem="xZY-6B-Huo" secondAttribute="bottom" constant="15" id="jWQ-Ck-kbS"/>
-            </constraints>
-            <size key="customSize" width="367" height="58"/>
+                <constraints>
+                    <constraint firstItem="jmG-v7-OJE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="IZ8-pb-Jgk"/>
+                    <constraint firstAttribute="trailing" secondItem="jmG-v7-OJE" secondAttribute="trailing" constant="15" id="eLW-Qv-JwY"/>
+                    <constraint firstAttribute="bottom" secondItem="jmG-v7-OJE" secondAttribute="bottom" constant="10" id="jYi-vK-vft"/>
+                    <constraint firstItem="jmG-v7-OJE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="mDl-0A-qEr"/>
+                </constraints>
+            </tableViewCellContentView>
             <connections>
-                <outlet property="title" destination="xZY-6B-Huo" id="E5m-2e-I3P"/>
+                <outlet property="title" destination="jmG-v7-OJE" id="Rtu-gd-FHp"/>
             </connections>
-            <point key="canvasLocation" x="-402.5" y="-229"/>
-        </collectionViewCell>
+            <point key="canvasLocation" x="-129" y="-71"/>
+        </tableViewCell>
     </objects>
 </document>

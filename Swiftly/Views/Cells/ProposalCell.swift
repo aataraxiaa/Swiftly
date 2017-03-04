@@ -2,25 +2,19 @@
 //  ProposalCell.swift
 //  Swiftly
 //
-//  Created by Pete Smith on 05/02/2017.
+//  Created by Pete Smith on 04/03/2017.
 //  Copyright © 2017 Pete Smith. All rights reserved.
 //
 
 import UIKit
 import SwiftEvolutionProvider
 
-class ProposalCell: UICollectionViewCell {
+class ProposalCell: UITableViewCell {
     
-    // MARK: - Outlets
-    @IBOutlet fileprivate weak var title: UILabel!
-
-    // MARK: - Lifecycle
+    // MARK: - IBOutlets
+    @IBOutlet fileprivate var title: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    
 }
 
 extension ProposalCell: Configurable {
