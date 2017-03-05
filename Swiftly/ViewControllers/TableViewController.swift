@@ -16,15 +16,22 @@ class TableViewController<Cell: UITableViewCell>: UIViewController, UITableViewD
     fileprivate var table: UITableView!
     fileprivate var collectionAdapter: CollectionAdapter!
     fileprivate let disposeBag = DisposeBag()
-    fileprivate var navigationAction: ((_ element: Any) -> Void)!
+    
+    typealias NavigationAction = ((_ element: Any) -> Void)
+    private var navigationAction: NavigationAction!
     
     // MARK: - Initialization
     
-    init(withAdapter adapter: CollectionAdapter, andNavigationAction navigationAction: @escaping (_ element: Any) -> Void) {
+    init(withAdapter adapter: CollectionAdapter, tabBarItem: UITabBarItem, title: String,
+         andNavigationAction navigationAction: @escaping NavigationAction) {
+        
         self.collectionAdapter = adapter
         self.navigationAction = navigationAction
         
         super.init(nibName: nil, bundle: nil)
+        
+        self.tabBarItem = tabBarItem
+        self.title = title
         
         configureTable()
         

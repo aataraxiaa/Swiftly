@@ -18,8 +18,7 @@ struct Router {
         let splitViewController = UISplitViewController()
         
         // Configure master & detail view controllers
-        splitViewController.viewControllers = [Router.tabBarController,
-                                                 Router.detailNavigationViewController]
+        splitViewController.viewControllers = [Router.tabBarController]
         
         return splitViewController
     }()
@@ -34,16 +33,33 @@ fileprivate extension PrivateAPI {
         let tabBarController = UITabBarController()
         
         // Configure the tab view controllers
-        tabBarController.viewControllers = [Router.masterNavigationViewController]
+        tabBarController.viewControllers = [Router.proposalNavigationViewController]
         
         return tabBarController
     }()
     
-    fileprivate static var masterNavigationViewController: UINavigationController = {
+    fileprivate static var proposalNavigationViewController: UINavigationController = {
         
-        // Set initial root view controller
-        let masterRootViewController = TableViewController<ProposalCell>(withAdapter: ProposalAdapter(), andNavigationAction: { element in
         
+        let navigationController = UINavigationController(rootViewController: proposalViewController)
+        navigationController.tabBarItem = proposalViewController.tabBarItem
+        
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
+        navigationController.navigationBar.tintColor = .white
+        
+        return navigationController
+    }()
+    
+    fileprivate static var proposalViewController: TableViewController<ProposalCell> = {
+        
+        let proposalTabBarItem = UITabBarItem(title: "Proposals", image: nil, tag: 0)
+    
+        return TableViewController<ProposalCell>(withAdapter: ProposalAdapter(),
+                                                 tabBarItem: proposalTabBarItem,
+                                                 title: "Swift Evolution Proposals",
+                                                 andNavigationAction: { element in
+            
             if let proposal = element as? Proposal {
                 guard let url = URL(
                     string: "https://github.com/apple/swift-evolution/blob/master/proposals/"+proposal.link) else { return }
@@ -53,24 +69,25 @@ fileprivate extension PrivateAPI {
                 rootViewController.showDetailViewController(safariViewController, sender: nil)
             }
         })
-        
-        let navigationController = UINavigationController(rootViewController: masterRootViewController)
-        navigationController.hidesBarsOnSwipe = true
-        
-        navigationController.navigationBar.isTranslucent = false
-        navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
-        
-        return navigationController
     }()
     
-    fileprivate static var detailNavigationViewController: UINavigationController = {
+    fileprivate static var newsViewController: TableViewController<ProposalCell> = {
         
-        let navigationController = UINavigationController()
-        navigationController.hidesBarsOnSwipe = true
+        let proposalTabBarItem = UITabBarItem(title: "Proposals", image: nil, tag: 0)
         
-        navigationController.navigationBar.isTranslucent = false
-        navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
-        
-        return navigationController
+        return TableViewController<ProposalCell>(withAdapter: ProposalAdapter(),
+                                                 tabBarItem: proposalTabBarItem,
+                                                 title: "Swift Evolution Proposals",
+                                                 andNavigationAction: { element in
+                                                    
+            if let proposal = element as? Proposal {
+                guard let url = URL(
+                    string: "https://github.com/apple/swift-evolution/blob/master/proposals/"+proposal.link) else { return }
+                
+                let safariViewController = SFSafariViewController(url: url)
+                
+                rootViewController.showDetailViewController(safariViewController, sender: nil)
+            }
+        })
     }()
 }

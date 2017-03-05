@@ -22,6 +22,7 @@
 		65D618CB1E50EDBA00E58573 /* CollectionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D618CA1E50EDBA00E58573 /* CollectionAdapter.swift */; };
 		65E8CED91E47B62600536A42 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8CED81E47B62600536A42 /* Color.swift */; };
 		65E8CEE11E47BA5600536A42 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E8CEE01E47BA5600536A42 /* NibLoadable.swift */; };
+		65EDD57C1E6C94EA00EDB708 /* State+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EDD57B1E6C94EA00EDB708 /* State+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		65D618CA1E50EDBA00E58573 /* CollectionAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionAdapter.swift; path = Protocols/CollectionAdapter.swift; sourceTree = "<group>"; };
 		65E8CED81E47B62600536A42 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Appearance/Color.swift; sourceTree = "<group>"; };
 		65E8CEE01E47BA5600536A42 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NibLoadable.swift; path = Protocols/NibLoadable.swift; sourceTree = "<group>"; };
+		65EDD57B1E6C94EA00EDB708 /* State+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "State+Extensions.swift"; path = "Model/State+Extensions.swift"; sourceTree = "<group>"; };
 		B6456A7A3A1BC4D763870ED0 /* Pods-Swiftly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftly.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swiftly/Pods-Swiftly.release.xcconfig"; sourceTree = "<group>"; };
 		F525B855041DE752FF25D441 /* Pods-Swiftly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swiftly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Swiftly/Pods-Swiftly.debug.xcconfig"; sourceTree = "<group>"; };
 		FEB378971B7FFE7A1B031EF2 /* Pods_Swiftly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swiftly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				650E4DAF1E491292009533C3 /* Store.swift */,
+				65EDD57B1E6C94EA00EDB708 /* State+Extensions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65EDD57C1E6C94EA00EDB708 /* State+Extensions.swift in Sources */,
 				65ACB3381E6AB3A300B931E4 /* TableViewController.swift in Sources */,
 				656AF8711E45FC1300634FF2 /* AppDelegate.swift in Sources */,
 				653FA5001E50F01F00611E2F /* ProposalAdapter.swift in Sources */,
