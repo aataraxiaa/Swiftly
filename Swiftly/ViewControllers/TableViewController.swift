@@ -10,10 +10,12 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class TableViewController<Cell: UITableViewCell>: UIViewController, UITableViewDelegate where Cell: NibLoadable, Cell: Configurable {
+class TableViewController<Cell: UITableViewCell>: UIViewController,
+    UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate where Cell: NibLoadable, Cell: Configurable {
     
     // MARK: - Properties (Private)
     fileprivate var table: UITableView!
+    fileprivate var searchController: UISearchController!
     fileprivate var collectionAdapter: CollectionAdapter!
     fileprivate let disposeBag = DisposeBag()
     
@@ -34,6 +36,8 @@ class TableViewController<Cell: UITableViewCell>: UIViewController, UITableViewD
         self.title = title
         
         configureTable()
+        
+        configureSearchController()
         
         table.delegate = self
         
@@ -59,6 +63,12 @@ class TableViewController<Cell: UITableViewCell>: UIViewController, UITableViewD
         
         navigationAction?(element)
     }
+    
+    // MARK: - SearchResultsUpdater
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        // todo
+    }
 }
 
 // MARK: - Table Configuration
@@ -83,6 +93,21 @@ extension TableViewController {
         configureTableDataSource()
     }
     
+    fileprivate func configureSearchController() {
+    
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.delegate = self
+        searchController.searchBar.searchBarStyle = .minimal
+//        searchController.searchBar.backgroundColor = Color.searchBar.instance()
+        searchController.dimsBackgroundDuringPresentation = false
+        table.tableHeaderView = searchController.searchBar
+        
+        // Define presentation context
+        definesPresentationContext = true
+    }
+    
     fileprivate func configureTableDataSource() {
         
         // Bind via Rx
@@ -92,5 +117,3 @@ extension TableViewController {
         }.addDisposableTo(disposeBag)
     }
 }
-
-

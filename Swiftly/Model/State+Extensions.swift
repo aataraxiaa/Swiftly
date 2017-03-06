@@ -23,24 +23,26 @@ extension State {
         case .rejected, .withdrawn:
             return .red
         default:
-            return .darkGray
+            return .gray
         }
     }
     
-//    var localizedTitle: String {
-//        switch self {
-//        case .accepted:
-//            return 
-//        case .activeReview, .returned:
-//            return .orange
-//        case .deferred:
-//            return .purple
-//        case .implemented:
-//            return .blue
-//        case .rejected, .withdrawn:
-//            return .red
-//        default:
-//            return .darkGray
-//        }
-//    }
+    var localizedTitle: String {
+        switch self {
+        case .accepted:
+            return self.rawValue.capitalized
+        case .activeReview:
+            return "Active Review"
+        case .returned:
+            return self.rawValue.capitalized
+        case .deferred:
+            return self.rawValue.capitalized
+        case .implemented:
+            return self.rawValue.capitalized
+        case .rejected, .withdrawn:
+            return self.rawValue.capitalized
+        default:
+            return self.rawValue.capitalized
+        }
+    }
 }

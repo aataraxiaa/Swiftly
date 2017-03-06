@@ -10,13 +10,14 @@ import UIKit
 
 enum Color {
     case navigationBar
+    case searchBar
 }
 
 extension Color {
     
     func instance() -> UIColor {
         switch self {
-        case .navigationBar:
+        case .navigationBar, .searchBar:
             return UIColor(displayP3Red: 0.96, green: 0.51, blue: 0.47, alpha: 1.0)
         }
     }

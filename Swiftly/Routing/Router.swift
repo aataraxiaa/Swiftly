@@ -33,7 +33,7 @@ fileprivate extension PrivateAPI {
         let tabBarController = UITabBarController()
         
         // Configure the tab view controllers
-        tabBarController.viewControllers = [Router.proposalNavigationViewController]
+        tabBarController.viewControllers = [Router.proposalNavigationViewController, Router.newsNavigationViewController]
         
         return tabBarController
     }()
@@ -71,13 +71,27 @@ fileprivate extension PrivateAPI {
         })
     }()
     
+    // MARK: - Curated News
+    
+    fileprivate static var newsNavigationViewController: UINavigationController = {
+        
+        let navigationController = UINavigationController(rootViewController: newsViewController)
+        navigationController.tabBarItem = newsViewController.tabBarItem
+        
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
+        navigationController.navigationBar.tintColor = .white
+        
+        return navigationController
+    }()
+    
     fileprivate static var newsViewController: TableViewController<ProposalCell> = {
         
-        let proposalTabBarItem = UITabBarItem(title: "Proposals", image: nil, tag: 0)
+        let proposalTabBarItem = UITabBarItem(title: "News", image: nil, tag: 0)
         
         return TableViewController<ProposalCell>(withAdapter: ProposalAdapter(),
                                                  tabBarItem: proposalTabBarItem,
-                                                 title: "Swift Evolution Proposals",
+                                                 title: "News",
                                                  andNavigationAction: { element in
                                                     
             if let proposal = element as? Proposal {

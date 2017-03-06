@@ -25,7 +25,12 @@ struct ProposalAdapter: CollectionAdapter {
     func fetch() {
         _ = ProposalProvider.proposals(withSuccess: { proposals in
             
-            self.elements.value = proposals
+            // Sort the proposals
+            let sortedProposals = proposals.sorted {
+                $0.status.state < $1.status.state
+            }
+            
+            self.elements.value = sortedProposals
             
         }, andFailure: { error in
                 
