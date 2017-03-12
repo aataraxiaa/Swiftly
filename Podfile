@@ -19,5 +19,8 @@ target 'Swiftly' do
   # Rx
   pod 'RxSwift'
   pod 'RxCocoa'
+  
+  # Database
+  pod 'Firebase/Database'
 
 end

@@ -33,7 +33,8 @@ fileprivate extension PrivateAPI {
         let tabBarController = UITabBarController()
         
         // Configure the tab view controllers
-        tabBarController.viewControllers = [Router.proposalNavigationViewController, Router.newsNavigationViewController]
+        tabBarController.viewControllers = [Router.newsNavigationViewController,
+                                            Router.proposalNavigationViewController]
         
         return tabBarController
     }()
@@ -46,7 +47,7 @@ fileprivate extension PrivateAPI {
         
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
-        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         return navigationController
     }()
@@ -80,7 +81,7 @@ fileprivate extension PrivateAPI {
         
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barTintColor = Color.navigationBar.instance()
-        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         return navigationController
     }()

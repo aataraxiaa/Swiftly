@@ -11,11 +11,11 @@ import RxCocoa
 import RxSwift
 
 class TableViewController<Cell: UITableViewCell>: UIViewController,
-    UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate where Cell: NibLoadable, Cell: Configurable {
+    UITableViewDelegate, UISearchBarDelegate where Cell: NibLoadable, Cell: Configurable {
     
     // MARK: - Properties (Private)
     fileprivate var table: UITableView!
-    fileprivate var searchController: UISearchController!
+    fileprivate var searchBar: UISearchBar!
     fileprivate var collectionAdapter: CollectionAdapter!
     fileprivate let disposeBag = DisposeBag()
     
@@ -37,7 +37,7 @@ class TableViewController<Cell: UITableViewCell>: UIViewController,
         
         configureTable()
         
-        configureSearchController()
+        configureSearchBar()
         
         table.delegate = self
         
@@ -93,19 +93,16 @@ extension TableViewController {
         configureTableDataSource()
     }
     
-    fileprivate func configureSearchController() {
+    fileprivate func configureSearchBar() {
     
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = true
-        searchController.delegate = self
-        searchController.searchBar.searchBarStyle = .minimal
-//        searchController.searchBar.backgroundColor = Color.searchBar.instance()
-        searchController.dimsBackgroundDuringPresentation = false
-        table.tableHeaderView = searchController.searchBar
+        let searchBarFrame = CGRect(x: 0, y: 0, width: table.bounds.width, height: 44)
+        searchBar = UISearchBar(frame: searchBarFrame)
+        searchBar.backgroundColor = .white
+        searchBar.tintColor = Color.searchBar.instance()
+        searchBar.searchBarStyle = .minimal
+        table.tableHeaderView = searchBar
         
-        // Define presentation context
-        definesPresentationContext = true
+        table.contentOffset = CGPoint(x: 0, y: -44)
     }
     
     fileprivate func configureTableDataSource() {
