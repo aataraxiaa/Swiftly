@@ -10,8 +10,9 @@ import Foundation
 import RxCocoa
 import RxSwift
 import Firebase
+import FirebaseDatabase
 
-struct NewsFeedAdapter: CollectionAdapter {
+struct PostAdapter: CollectionAdapter {
     
     // MARK: - Properties (Public)
     
@@ -27,12 +28,21 @@ struct NewsFeedAdapter: CollectionAdapter {
     
     private var elements: Variable<[Any]> = Variable([])
     
-    var ref = FIRDatabase.database().reference()
+    var ref = FIRDatabase.database().reference().child("swiftly").child("posts")
     
     // MARK: - Public API
     
     func fetch() {
         
+        // Listen for FirebaseDatabase changes
+        _ = ref.observe(.childAdded, with: { (snapshot) in
+            
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            
+            for case let posts as [Int : Any] in postDict.values {
+                print(posts)
+            }
+        })
     }
     
     subscript(index: Int) -> Any? {

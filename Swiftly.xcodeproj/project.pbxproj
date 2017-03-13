@@ -15,8 +15,11 @@
 		656AF8711E45FC1300634FF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656AF8701E45FC1300634FF2 /* AppDelegate.swift */; };
 		656AF8781E45FC1300634FF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 656AF8771E45FC1300634FF2 /* Assets.xcassets */; };
 		656AF87B1E45FC1300634FF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 656AF8791E45FC1300634FF2 /* LaunchScreen.storyboard */; };
-		6579A3561E756A6C00CF4E17 /* NewsFeedAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6579A3551E756A6C00CF4E17 /* NewsFeedAdapter.swift */; };
+		6579A3561E756A6C00CF4E17 /* PostAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6579A3551E756A6C00CF4E17 /* PostAdapter.swift */; };
 		65A2544A1E476A010080DBE5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65A254491E476A010080DBE5 /* GoogleService-Info.plist */; };
+		65A42D3B1E772D7400D12CBD /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A42D391E772D7400D12CBD /* PostCell.swift */; };
+		65A42D3C1E772D7400D12CBD /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65A42D3A1E772D7400D12CBD /* PostCell.xib */; };
+		65A42D3E1E772E2000D12CBD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A42D3D1E772E2000D12CBD /* Post.swift */; };
 		65ACB3381E6AB3A300B931E4 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACB3371E6AB3A300B931E4 /* TableViewController.swift */; };
 		65ACB33E1E6B2BB900B931E4 /* ProposalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ACB33C1E6B2BB900B931E4 /* ProposalCell.swift */; };
 		65ACB33F1E6B2BB900B931E4 /* ProposalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65ACB33D1E6B2BB900B931E4 /* ProposalCell.xib */; };
@@ -37,8 +40,11 @@
 		656AF8771E45FC1300634FF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		656AF87A1E45FC1300634FF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		656AF87C1E45FC1300634FF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportingFiles/Info.plist; sourceTree = "<group>"; };
-		6579A3551E756A6C00CF4E17 /* NewsFeedAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsFeedAdapter.swift; path = Adapters/NewsFeedAdapter.swift; sourceTree = "<group>"; };
+		6579A3551E756A6C00CF4E17 /* PostAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostAdapter.swift; path = Adapters/PostAdapter.swift; sourceTree = "<group>"; };
 		65A254491E476A010080DBE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		65A42D391E772D7400D12CBD /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostCell.swift; path = Views/Cells/PostCell.swift; sourceTree = "<group>"; };
+		65A42D3A1E772D7400D12CBD /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostCell.xib; path = Views/Cells/PostCell.xib; sourceTree = "<group>"; };
+		65A42D3D1E772E2000D12CBD /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Model/Post.swift; sourceTree = "<group>"; };
 		65ACB3371E6AB3A300B931E4 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ViewControllers/TableViewController.swift; sourceTree = "<group>"; };
 		65ACB33C1E6B2BB900B931E4 /* ProposalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProposalCell.swift; path = Views/Cells/ProposalCell.swift; sourceTree = "<group>"; };
 		65ACB33D1E6B2BB900B931E4 /* ProposalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProposalCell.xib; path = Views/Cells/ProposalCell.xib; sourceTree = "<group>"; };
@@ -149,6 +155,15 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		65A42D381E772CF100D12CBD /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				65A42D391E772D7400D12CBD /* PostCell.swift */,
+				65A42D3A1E772D7400D12CBD /* PostCell.xib */,
+			);
+			name = Posts;
+			sourceTree = "<group>";
+		};
 		65ACB3391E6AB3CA00B931E4 /* Proposals */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				653FA4FF1E50F01F00611E2F /* ProposalAdapter.swift */,
-				6579A3551E756A6C00CF4E17 /* NewsFeedAdapter.swift */,
+				6579A3551E756A6C00CF4E17 /* PostAdapter.swift */,
 			);
 			name = Adapters;
 			sourceTree = "<group>";
@@ -173,6 +188,7 @@
 				650E4DAF1E491292009533C3 /* Store.swift */,
 				65EDD57B1E6C94EA00EDB708 /* Status+Extensions.swift */,
 				65EDD57D1E6F569D00EDB708 /* BetterString.swift */,
+				65A42D3D1E772E2000D12CBD /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -188,6 +204,7 @@
 		65E8CED21E47AED500536A42 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				65A42D381E772CF100D12CBD /* Posts */,
 				65ACB3391E6AB3CA00B931E4 /* Proposals */,
 			);
 			name = Cells;
@@ -294,6 +311,7 @@
 			files = (
 				656AF87B1E45FC1300634FF2 /* LaunchScreen.storyboard in Resources */,
 				65ACB33F1E6B2BB900B931E4 /* ProposalCell.xib in Resources */,
+				65A42D3C1E772D7400D12CBD /* PostCell.xib in Resources */,
 				65A2544A1E476A010080DBE5 /* GoogleService-Info.plist in Resources */,
 				656AF8781E45FC1300634FF2 /* Assets.xcassets in Resources */,
 			);
@@ -374,10 +392,12 @@
 				653FA5001E50F01F00611E2F /* ProposalAdapter.swift in Sources */,
 				655BD2511E4919A800FA7511 /* Router.swift in Sources */,
 				65D618CB1E50EDBA00E58573 /* CollectionAdapter.swift in Sources */,
+				65A42D3B1E772D7400D12CBD /* PostCell.swift in Sources */,
 				65ACB33E1E6B2BB900B931E4 /* ProposalCell.swift in Sources */,
+				65A42D3E1E772E2000D12CBD /* Post.swift in Sources */,
 				650E4DB01E491292009533C3 /* Store.swift in Sources */,
 				65E8CEE11E47BA5600536A42 /* NibLoadable.swift in Sources */,
-				6579A3561E756A6C00CF4E17 /* NewsFeedAdapter.swift in Sources */,
+				6579A3561E756A6C00CF4E17 /* PostAdapter.swift in Sources */,
 				65677A5D1E4F921B0015C342 /* Configurable.swift in Sources */,
 				65E8CED91E47B62600536A42 /* Color.swift in Sources */,
 			);

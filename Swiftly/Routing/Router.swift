@@ -86,23 +86,21 @@ fileprivate extension PrivateAPI {
         return navigationController
     }()
     
-    fileprivate static var newsViewController: TableViewController<ProposalCell> = {
+    fileprivate static var newsViewController: TableViewController<PostCell> = {
         
-        let proposalTabBarItem = UITabBarItem(title: "News", image: nil, tag: 0)
+        let newsTabBarItem = UITabBarItem(title: "Posts", image: nil, tag: 0)
         
-        return TableViewController<ProposalCell>(withAdapter: ProposalAdapter(),
-                                                 tabBarItem: proposalTabBarItem,
-                                                 title: "News",
+        return TableViewController<PostCell>(withAdapter: PostAdapter(),
+                                                 tabBarItem: newsTabBarItem,
+                                                 title: "Posts",
                                                  andNavigationAction: { element in
                                                     
-            if let proposal = element as? Proposal {
-                guard let url = URL(
-                    string: "https://github.com/apple/swift-evolution/blob/master/proposals/"+proposal.link) else { return }
+            guard let post = element as? Post, let url = post.url else { return }
                 
-                let safariViewController = SFSafariViewController(url: url)
+            let safariViewController = SFSafariViewController(url: url)
                 
-                rootViewController.showDetailViewController(safariViewController, sender: nil)
-            }
+            rootViewController.showDetailViewController(safariViewController, sender: nil)
+            
         })
     }()
 }
